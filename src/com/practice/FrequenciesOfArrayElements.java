@@ -46,4 +46,7 @@ public class FrequenciesOfArrayElements {
 /*
 *   The if-else block in HashMap approach can be improved into a single statement also
 *   map.put(x, map.getOrDefault(x, 0) + 1);
+*
+*   Traversal can also be improved using this
+*   map.forEach((key, value) -> System.out.println(key + " " + value));
 *  */
