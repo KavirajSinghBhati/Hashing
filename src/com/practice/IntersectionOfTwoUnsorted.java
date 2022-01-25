@@ -1,10 +1,12 @@
 package com.practice;
 
+import java.util.HashSet;
+
 public class IntersectionOfTwoUnsorted {
     public static void main(String[] args) {
-        int[] a = {10, 15, 20, 5, 30};
-        int[] b = {30, 5, 30, 80};
-        int count = intersectionNaive(a, b, a.length, b.length);
+        int[] a = {10, 20, 10, 30, 20};
+        int[] b = {20, 10, 10, 40};
+        int count = intersectionEfficientOne(a, b);
         System.out.println(count);  // 2
     }
 
@@ -27,6 +29,20 @@ public class IntersectionOfTwoUnsorted {
                 }
             }
         }
+        return res;
+    }
+
+    static int intersectionEfficientOne(int[] a, int[] b) {
+        int res = 0;
+        HashSet<Integer> hashOne = new HashSet<>();
+        HashSet<Integer> hashTwo = new HashSet<>();
+        for (int x : a)
+            hashOne.add(x);
+        for (int y : b)
+            hashTwo.add(y);
+        for (Integer x : hashOne)
+            if (hashTwo.contains(x))
+                res++;
         return res;
     }
 }
