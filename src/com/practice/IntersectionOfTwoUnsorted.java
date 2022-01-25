@@ -6,7 +6,7 @@ public class IntersectionOfTwoUnsorted {
     public static void main(String[] args) {
         int[] a = {10, 20, 10, 30, 20};
         int[] b = {20, 10, 10, 40};
-        int count = intersectionEfficientOne(a, b);
+        int count = intersectionEfficientTwo(a, b);
         System.out.println(count);  // 2
     }
 
@@ -43,6 +43,19 @@ public class IntersectionOfTwoUnsorted {
         for (Integer x : hashOne)
             if (hashTwo.contains(x))
                 res++;
+        return res;
+    }
+
+    static int intersectionEfficientTwo(int[] a, int[] b) {
+        int res = 0;
+        HashSet<Integer> hashOne = new HashSet<>();
+        for (int x : a)
+            hashOne.add(x);
+        for (int y : b)
+            if (hashOne.contains(y)) {
+                res++;
+                hashOne.remove(y);
+            }
         return res;
     }
 }
