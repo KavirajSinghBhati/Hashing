@@ -2,12 +2,13 @@ package com.practice;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class UnionOfTwoUnsorted {
     public static void main(String[] args) {
         int[] a = {15, 20, 5, 15};
         int[] b = {15, 15, 15, 20, 10};
-        int count = unionNaive(a, b, a.length, b.length);
+        int count = unionEfficient(a, b);
         System.out.println(count);  //4
     }
 
@@ -41,5 +42,14 @@ public class UnionOfTwoUnsorted {
             res++;
         }
         return res;
+    }
+
+    static int unionEfficient(int[] a, int[] b) {
+        HashSet<Integer> hash = new HashSet<>();
+        for (int x : a)
+            hash.add(x);
+        for (int y : b)
+            hash.add(y);
+        return hash.size();
     }
 }
