@@ -24,7 +24,7 @@ public class EqualZeroOne {
         return res;
     }
 
-    static int largestZeroSubarray(int arr[], int n)
+    static int largestZeroSubarray(int[] arr, int n)
     {
         HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
         int sum = 0, maxLen = 0;
